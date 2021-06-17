@@ -1,6 +1,10 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import submitHandler from "./submitHandler";
+
+function submitHandler(event) {
+  event.preventDefault();
+  console.log("submit button was clicked!");
+}
 
 export default function ConvertButton() {
   return (
