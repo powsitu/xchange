@@ -1,4 +1,4 @@
-import { CURRENCIES_FETCHED } from "./actions";
+import { CURRENCIES_FETCHED, RESULT_UPDATED } from "./actions";
 
 const initialState = {
   availableCurrencies: [],
@@ -11,6 +11,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         availableCurrencies: action.payload,
+      };
+    case RESULT_UPDATED:
+      return {
+        ...state,
+        conversionResult: action.payload,
       };
     default:
       return state;

@@ -2,10 +2,16 @@ import axios from "axios";
 import { API_URL, API_KEY } from "../../constants";
 
 export const CURRENCIES_FETCHED = "CURRENCIES_FETCHED";
+export const RESULT_UPDATED = "RESULT_UPDATED";
 
 const CurrenciesFetched = (currencies) => ({
   type: CURRENCIES_FETCHED,
   payload: currencies,
+});
+
+export const updateResult = (conversionResult) => ({
+  type: RESULT_UPDATED,
+  payload: conversionResult,
 });
 
 export const availableCurrencies = () => {
