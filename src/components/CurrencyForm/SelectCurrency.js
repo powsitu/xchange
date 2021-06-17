@@ -1,4 +1,5 @@
 import { Form } from "react-bootstrap";
+import { currencyNames } from "../../constants/currencyNames";
 
 export default function SelectCurrency(props) {
   return (
@@ -9,7 +10,7 @@ export default function SelectCurrency(props) {
         {props.data.map((currency, index) => {
           return (
             <option value={currency} key={index}>
-              {currency}
+              {currency} - {currencyNames[currency]}
             </option>
           );
         })}
