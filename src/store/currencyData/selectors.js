@@ -3,3 +3,5 @@ export const selectCurrencies = (state) =>
 
 export const selectConversionResult = (state) =>
   state.currencyData.conversionResult;
+
+export const selectRates = (state) => state.currencyData.availableRates;
