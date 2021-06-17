@@ -2,16 +2,14 @@ import React from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import SelectCurrency from "./SelectCurrency";
 import submitHandler from "./submitHandler";
+import InputAmount from "./InputAmount";
 
 export default function CurrencyForm() {
   return (
     <Form>
       <Row>
         <Col md>
-          <Form.Group>
-            <Form.Label>Amount</Form.Label>
-            <Form.Control type="text" placeholder="Enter amount..." />
-          </Form.Group>
+          <InputAmount label="Amount" />
         </Col>
         <Col md>
           <SelectCurrency label="From" />
