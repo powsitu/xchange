@@ -13,7 +13,7 @@ export default function SelectCurrency(props) {
   }, [dispatch]);
 
   return (
-    <Form.Group>
+    <Form.Group controlId={props.id}>
       <Form.Label>{props.label}</Form.Label>
       <Form.Control as="select">
         <option>Choose...</option>
