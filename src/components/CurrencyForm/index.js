@@ -4,10 +4,14 @@ import SelectCurrency from "./SelectCurrency";
 import InputAmount from "./InputAmount";
 import ConvertButton from "./ConvertButton";
 import ResultField from "./ResultField";
-import { availableCurrencies } from "../../store/currencyData/actions";
+import {
+  availableCurrencies,
+  availableRates,
+} from "../../store/currencyData/actions";
 import {
   selectCurrencies,
   selectConversionResult,
+  selectRates,
 } from "../../store/currencyData/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../Loading";
@@ -18,11 +22,13 @@ export default function CurrencyForm() {
   const [currencyTo, set_currencyTo] = useState("");
 
   const data = useSelector(selectCurrencies);
+  const fxData = useSelector(selectRates);
   const conversionResult = useSelector(selectConversionResult);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(availableCurrencies());
+    dispatch(availableRates());
   }, [dispatch]);
 
   function changeHandler(event) {
@@ -82,7 +88,7 @@ export default function CurrencyForm() {
             amount={amount}
             currencyFrom={currencyFrom}
             currencyTo={currencyTo}
-            data={data}
+            data={fxData}
           />
           <ResultField result={conversionResult} />
         </Col>
