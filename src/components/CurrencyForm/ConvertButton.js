@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import converter from "./converter";
 import { useDispatch } from "react-redux";
 import { updateResult } from "../../store/currencyData/actions";
+import { AddInput } from "../../store/userInput/actions";
 
 export default function ConvertButton(props) {
   const dispatch = useDispatch();
@@ -16,7 +17,13 @@ export default function ConvertButton(props) {
       props.currencyTo,
       props.data
     );
+    const userInput = {
+      amount: props.amount,
+      currencyFrom: props.currencyFrom,
+      currencyTo: props.currencyTo,
+    };
     dispatch(updateResult(result));
+    dispatch(AddInput(userInput));
   }
 
   return (

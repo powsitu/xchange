@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Card } from "react-bootstrap";
 import CurrencyForm from "../../components/CurrencyForm";
 import "bootstrap/dist/css/bootstrap.min.css";
+import TheChart from "../../components/TheChart";
 
 export default function Home() {
   return (
@@ -16,6 +17,11 @@ export default function Home() {
             Using rates from <a href="https://ratesapi.io/">ratesapi.io</a>
           </small>
         </Card.Footer>
+      </Card>
+      <Card text="dark">
+        <Card.Body>
+          <TheChart />
+        </Card.Body>
       </Card>
     </Container>
   );
