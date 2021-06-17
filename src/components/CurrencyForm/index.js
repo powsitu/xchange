@@ -62,7 +62,7 @@ export default function CurrencyForm() {
                 id="formFrom"
                 value={currencyFrom}
                 onChange={changeHandler}
-                data={Object.keys(data)}
+                data={data}
               />
             </Col>
 
@@ -72,7 +72,7 @@ export default function CurrencyForm() {
                 id="formTo"
                 value={currencyTo}
                 onChange={changeHandler}
-                data={Object.keys(data)}
+                data={data}
               />
             </Col>
           </>

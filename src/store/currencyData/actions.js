@@ -18,9 +18,9 @@ export const availableCurrencies = () => {
   return async (dispatch) => {
     try {
       const response = await axios.get(
-        `${API_URL}/latest?access_key=${API_KEY}`
+        `${API_URL}/symbols?access_key=${API_KEY}`
       );
-      dispatch(CurrenciesFetched(response.data.rates));
+      dispatch(CurrenciesFetched(response.data.symbols));
     } catch (error) {
       console.log(error.message);
     }
