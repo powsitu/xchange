@@ -33,7 +33,5 @@ function lastSevenDays() {
 export default function chartFeeder() {
   const symbols = ["USD", "GBP"];
   const daysData = lastSevenDays();
-  const chartData = historicalFetcher(daysData, symbols);
-
-  return chartData;
+  historicalFetcher(daysData, symbols);
 }

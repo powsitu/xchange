@@ -12,14 +12,13 @@ import chartFeeder from "../chartFeeder";
 import Loading from "../Loading";
 
 export default function TheChart() {
-  const data = chartFeeder();
-  console.log(data);
+  // const data = chartFeeder();
 
   return (
     <>
-      {data.length !== 8 ? (
-        <Loading />
-      ) : (
+      {/* {data.length !== 8 ? ( */}
+      <Loading />
+      {/* ) : (
         <ResponsiveContainer width="100%" height={400}>
           <AreaChart data={data}>
             <Area dataKey="value" stroke="#28a745" fill="#20c997" />
@@ -37,7 +36,7 @@ export default function TheChart() {
             <Tooltip />
           </AreaChart>
         </ResponsiveContainer>
-      )}
+      )} */}
     </>
   );
 }
