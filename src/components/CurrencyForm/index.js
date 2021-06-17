@@ -82,6 +82,7 @@ export default function CurrencyForm() {
             amount={amount}
             currencyFrom={currencyFrom}
             currencyTo={currencyTo}
+            data={data}
           />
           <ResultField result={conversionResult} />
         </Col>
