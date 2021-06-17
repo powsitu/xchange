@@ -12,6 +12,7 @@ import chartFeeder from "../chartFeeder";
 
 export default function TheChart() {
   const data = chartFeeder();
+  console.log(data);
 
   return (
     <ResponsiveContainer width="100%" height={400}>
@@ -21,7 +22,7 @@ export default function TheChart() {
           dataKey="date"
           tickFormatter={(str) => {
             const date = parseISO(str);
-            if (date.getDate() % 7 === 0) {
+            if (date.getDate() % 2 === 0) {
               return format(date, "MMM, d");
             }
             return "";
