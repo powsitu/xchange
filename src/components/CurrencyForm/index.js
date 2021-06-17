@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
+import SelectCurrency from "./SelectCurrency";
 
 export default function CurrencyForm() {
   return (
@@ -12,26 +13,10 @@ export default function CurrencyForm() {
           </Form.Group>
         </Col>
         <Col md>
-          <Form.Group>
-            <Form.Label>From</Form.Label>
-            <Form.Control as="select">
-              <option>Choose...</option>
-              <option>EUR</option>
-              <option>USD</option>
-              <option>GBP</option>
-            </Form.Control>
-          </Form.Group>
+          <SelectCurrency label="From" />
         </Col>
         <Col md>
-          <Form.Group>
-            <Form.Label>To</Form.Label>
-            <Form.Control as="select">
-              <option>Choose...</option>
-              <option>EUR</option>
-              <option>USD</option>
-              <option>GBP</option>
-            </Form.Control>
-          </Form.Group>
+          <SelectCurrency label="To" />
         </Col>
         <Col md>
           <Button as="input" variant="success" type="submit" />
