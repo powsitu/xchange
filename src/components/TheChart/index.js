@@ -16,6 +16,11 @@ import {
 import { subDays } from "date-fns";
 import { useDispatch, useSelector } from "react-redux";
 import { historicalFetcher } from "../../store/chartData/actions";
+import {
+  selectUserCurrencyFrom,
+  selectUserCurrencyTo,
+  selectUserAmount,
+} from "../../store/userInput/selectors";
 
 function lastSevenDays() {
   const lastThirtyDays = [];
@@ -29,12 +34,15 @@ export default function TheChart() {
   const dispatch = useDispatch();
   const dataCount = useSelector(countWeeklyConversion);
   const data = useSelector(selectWeeklyConversion);
+  const currencyFrom = useSelector(selectUserCurrencyFrom);
+  const currencyTo = useSelector(selectUserCurrencyTo);
+  const amount = useSelector(selectUserAmount);
 
   useEffect(() => {
-    const symbols = ["USD", "GBP"];
     const daysData = lastSevenDays();
-    dispatch(historicalFetcher(daysData, symbols));
-  }, [dispatch]);
+    const symbols = [currencyFrom, currencyTo];
+    dispatch(historicalFetcher(daysData, symbols, amount));
+  }, [dispatch, currencyFrom, currencyTo, amount]);
 
   return (
     <>

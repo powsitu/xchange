@@ -10,7 +10,7 @@ export function AddDay(dailyConversion) {
   };
 }
 
-export function historicalFetcher(daysData, symbols) {
+export function historicalFetcher(daysData, symbols, amount) {
   return async (dispatch) => {
     for (let i = 0; i < daysData.length; i++) {
       try {
@@ -20,7 +20,7 @@ export function historicalFetcher(daysData, symbols) {
         const dailyConversion = {
           date: daysData[i],
           value:
-            (1 / response.data.rates[symbols[0]]) *
+            (amount / response.data.rates[symbols[0]]) *
             response.data.rates[symbols[1]],
         };
         dispatch(AddDay(dailyConversion));
