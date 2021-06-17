@@ -19,7 +19,9 @@ export default function Home() {
         </Card.Footer>
       </Card>
       <Card text="dark">
-        <TheChart />
+        <Card.Body>
+          <TheChart />
+        </Card.Body>
       </Card>
     </Container>
   );
