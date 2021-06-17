@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import SelectCurrency from "./SelectCurrency";
+import submitHandler from "./submitHandler";
 
 export default function CurrencyForm() {
   return (
@@ -19,7 +20,13 @@ export default function CurrencyForm() {
           <SelectCurrency label="To" />
         </Col>
         <Col md>
-          <Button as="input" variant="success" type="submit" />
+          <Button
+            as="input"
+            variant="success"
+            type="submit"
+            value="Convert"
+            onClick={submitHandler}
+          />
         </Col>
       </Row>
     </Form>
