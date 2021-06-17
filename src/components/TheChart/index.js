@@ -7,17 +7,12 @@ import {
   Area,
   Tooltip,
 } from "recharts";
-import { format, parseISO, subDays } from "date-fns";
-
-const data = [];
-for (let num = 30; num >= 0; num--) {
-  data.push({
-    date: subDays(new Date(), num).toISOString().substr(0, 10),
-    value: 1 + Math.random(),
-  });
-}
+import { format, parseISO } from "date-fns";
+import chartFeeder from "../chartFeeder";
 
 export default function TheChart() {
+  const data = chartFeeder();
+
   return (
     <ResponsiveContainer width="100%" height={400}>
       <AreaChart data={data}>
