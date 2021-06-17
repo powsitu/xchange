@@ -1,25 +1,28 @@
 import axios from "axios";
 import { subDays } from "date-fns";
 import { API_URL, API_KEY } from "../../constants";
+import { useDispatch, useSelector } from "react-redux";
+import { addDay } from "../../store/chartData/actions";
 
-async function historicalFetcher(daysData, symbols) {
-  const chartData = [];
+async function HistoricalFetcher(daysData, symbols) {
+  const dispatch = useDispatch();
+
   for (let i = 0; i < daysData.length; i++) {
     try {
       const response = await axios.get(
         `${API_URL}/${daysData[i]}?access_key=${API_KEY}&symbols=${symbols[0]},${symbols[1]}`
       );
-      chartData.push({
+      const dailyConversion = {
         date: daysData[i],
         value:
           (1 / response.data.rates[symbols[0]]) *
           response.data.rates[symbols[1]],
-      });
+      };
+      dispatch(addDay(dailyConversion));
     } catch (error) {
       console.log(error.message);
     }
   }
-  return chartData;
 }
 
 function lastSevenDays() {
@@ -33,5 +36,5 @@ function lastSevenDays() {
 export default function chartFeeder() {
   const symbols = ["USD", "GBP"];
   const daysData = lastSevenDays();
-  historicalFetcher(daysData, symbols);
+  HistoricalFetcher(daysData, symbols);
 }

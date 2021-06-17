@@ -1,4 +1,4 @@
-import ADD_DAY from "./actions";
+import { ADD_DAY } from "./actions";
 
 const initialState = {};
 
