@@ -12,7 +12,7 @@ import chartFeeder from "../chartFeeder";
 import Loading from "../Loading";
 
 export default function TheChart() {
-  // const data = chartFeeder();
+  chartFeeder();
 
   return (
     <>
