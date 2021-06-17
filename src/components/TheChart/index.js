@@ -6,7 +6,6 @@ import {
   YAxis,
   Area,
   Tooltip,
-  CartesianGrid,
 } from "recharts";
 import { format, parseISO, subDays } from "date-fns";
 
@@ -23,10 +22,18 @@ export default function TheChart() {
     <ResponsiveContainer width="100%" height={400}>
       <AreaChart data={data}>
         <Area dataKey="value" stroke="#28a745" fill="#20c997" />
-        <XAxis dataKey="date" />
+        <XAxis
+          dataKey="date"
+          tickFormatter={(str) => {
+            const date = parseISO(str);
+            if (date.getDate() % 7 === 0) {
+              return format(date, "MMM, d");
+            }
+            return "";
+          }}
+        />
         <YAxis dataKey="value" axisLine={false} />
         <Tooltip />
-        <CartesianGrid opacity={0.1} />
       </AreaChart>
     </ResponsiveContainer>
   );
