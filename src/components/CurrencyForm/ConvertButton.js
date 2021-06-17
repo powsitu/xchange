@@ -1,12 +1,14 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 
-function submitHandler(event) {
-  event.preventDefault();
-  console.log("submit button was clicked!");
-}
+export default function ConvertButton(props) {
+  function submitHandler(event) {
+    event.preventDefault();
+    console.log(
+      `You wanna know how much ${props.amount} ${props.currencyFrom} is in ${props.currencyTo}`
+    );
+  }
 
-export default function ConvertButton() {
   return (
     <Button
       as="input"

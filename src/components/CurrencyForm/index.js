@@ -78,7 +78,11 @@ export default function CurrencyForm() {
           </>
         )}
         <Col md>
-          <ConvertButton />
+          <ConvertButton
+            amount={amount}
+            currencyFrom={currencyFrom}
+            currencyTo={currencyTo}
+          />
           <ResultField result={conversionResult} />
         </Col>
       </Row>

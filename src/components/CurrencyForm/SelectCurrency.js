@@ -4,7 +4,7 @@ export default function SelectCurrency(props) {
   return (
     <Form.Group controlId={props.id}>
       <Form.Label>{props.label}</Form.Label>
-      <Form.Control as="select">
+      <Form.Control as="select" onChange={props.onChange}>
         <option>Choose...</option>
         {props.data.map((currency, index) => {
           return (
