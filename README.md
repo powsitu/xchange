@@ -1,3 +1,5 @@
+LIVE version can be found here: http://xchangecurrencies.herokuapp.com/
+
 Your task is to build a web-based currency converter, using a foreign exchange rate API as a source of truth for the conversion. The requirements for this task are as follows:
 
 - Ability to select the source and target currencies
