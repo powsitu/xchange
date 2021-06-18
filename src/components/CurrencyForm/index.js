@@ -21,7 +21,7 @@ export default function CurrencyForm() {
   const [amount, set_amount] = useState("");
   const [currencyFrom, set_currencyFrom] = useState("");
   const [currencyTo, set_currencyTo] = useState("");
-  const [date, set_date] = useState("");
+  const [date, set_date] = useState(new Date().toISOString().substr(0, 10));
 
   const data = useSelector(selectCurrencies);
   const fxData = useSelector(selectRates);
@@ -30,8 +30,8 @@ export default function CurrencyForm() {
 
   useEffect(() => {
     dispatch(availableCurrencies());
-    dispatch(availableRates());
-  }, [dispatch]);
+    dispatch(availableRates(date));
+  }, [dispatch, date]);
 
   function changeHandler(event) {
     switch (event.target.id) {
@@ -45,7 +45,6 @@ export default function CurrencyForm() {
         set_currencyTo(event.target.value);
         break;
       case "formDate":
-        console.log(event.target.value);
         set_date(event.target.value);
         break;
       default:
