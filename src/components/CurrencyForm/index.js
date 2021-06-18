@@ -15,11 +15,13 @@ import {
 } from "../../store/currencyData/selectors";
 import { useDispatch, useSelector } from "react-redux";
 import Loading from "../Loading";
+import SelectDate from "./SelectDate";
 
 export default function CurrencyForm() {
   const [amount, set_amount] = useState("");
   const [currencyFrom, set_currencyFrom] = useState("");
   const [currencyTo, set_currencyTo] = useState("");
+  const [date, set_date] = useState("");
 
   const data = useSelector(selectCurrencies);
   const fxData = useSelector(selectRates);
@@ -41,6 +43,10 @@ export default function CurrencyForm() {
         break;
       case "formTo":
         set_currencyTo(event.target.value);
+        break;
+      case "formDate":
+        console.log(event.target.value);
+        set_date(event.target.value);
         break;
       default:
         console.log("Something went wrong!");
@@ -71,7 +77,14 @@ export default function CurrencyForm() {
                 data={data}
               />
             </Col>
-
+            <Col md>
+              <SelectDate
+                label="Select date"
+                id="formDate"
+                value={date}
+                onChange={changeHandler}
+              />
+            </Col>
             <Col md>
               <SelectCurrency
                 label="To"
