@@ -48,7 +48,7 @@ export default function TheChart() {
 
   return (
     <>
-      {dataCount === 0 ? (
+      {dataCount === 0 || dataCount === undefined ? (
         <Loading />
       ) : (
         <ResponsiveContainer width="100%" height={400}>

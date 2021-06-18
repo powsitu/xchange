@@ -2,6 +2,7 @@ import axios from "axios";
 import { API_URL, API_KEY } from "../../constants";
 
 export const ADD_DAY = "ADD_DAY";
+export const RESET = "RESET";
 
 export function AddDay(dailyConversion) {
   return {
@@ -9,6 +10,10 @@ export function AddDay(dailyConversion) {
     payload: dailyConversion,
   };
 }
+
+export const Reset = () => ({
+  type: RESET,
+});
 
 export function historicalFetcher(daysData, symbols, amount) {
   return async (dispatch) => {

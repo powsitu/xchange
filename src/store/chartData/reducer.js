@@ -1,4 +1,4 @@
-import { ADD_DAY } from "./actions";
+import { ADD_DAY, RESET } from "./actions";
 
 const initialState = {
   weekly: [],
@@ -16,6 +16,11 @@ export default function reducer(state = initialState, action) {
             value: action.payload.value,
           },
         ],
+      };
+    case RESET:
+      return {
+        ...state,
+        weekly: initialState.weekly,
       };
     default:
       return state;
