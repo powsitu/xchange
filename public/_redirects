@@ -1,2 +1,2 @@
 /*    /index.html   200
-/*    http://api.exchangeratesapi.io/v1/* 200
+http://api.exchangeratesapi.io/v1/*    http://api.exchangeratesapi.io/v1/:splat 200!
