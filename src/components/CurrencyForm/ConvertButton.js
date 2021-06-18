@@ -26,7 +26,6 @@ export default function ConvertButton(props) {
       currencyTo: props.currencyTo,
     };
     if (countWeeklyDate === 8) {
-      console.log("weekly data needs to be wiped!");
       dispatch(Reset());
     }
     dispatch(updateResult(result));
