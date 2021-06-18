@@ -41,7 +41,9 @@ export default function TheChart() {
   useEffect(() => {
     const daysData = lastSevenDays();
     const symbols = [currencyFrom, currencyTo];
-    dispatch(historicalFetcher(daysData, symbols, amount));
+    if (symbols[0] !== "" && symbols[1] !== "" && amount !== "") {
+      dispatch(historicalFetcher(daysData, symbols, amount));
+    }
   }, [dispatch, currencyFrom, currencyTo, amount]);
 
   return (
